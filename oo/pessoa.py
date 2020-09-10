@@ -5,13 +5,17 @@ class Pessoa:
     def diga_oi(self):
         return 'Oi galera'
 
-    def __init__(self, nome=None, idade=28):
+    def __init__(self, *filhos, nome=None, idade=28):
         self.idade = idade
         self.nome = nome
+        self.filhos = list(filhos)
 
 if __name__ == '__main__':
-    p = Pessoa('Giba')
-    print(p.cumprimentar())
-    print(p.diga_oi())
-    print(p.nome)
-    print(p.idade)
+    gilberto = Pessoa(nome='Giba')
+    sophia = Pessoa(gilberto, nome='Sophia')
+    print(gilberto.nome)
+    print(gilberto.idade)
+    for filho in sophia.filhos:
+        print(filho.nome)
+
+    print(sophia.nome)
